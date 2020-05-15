@@ -31,6 +31,7 @@ struct fixed
 		return fixed(a.w * b.w + wf / div(), wf % div());
 	}
 
+	// TODO: This overflows too early (by factor of 100,000). Fix it.
 	friend fixed operator/(const fixed a, const fixed b)
 	{
 		auto ax = u128(a.w) * div() + a.f;
